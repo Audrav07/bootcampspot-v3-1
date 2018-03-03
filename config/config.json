@@ -1,0 +1,23 @@
+{
+    "development": {
+        "username": "bootcampspot",
+        "password": "LfkEAkNNP2v1",
+        "database": "bootcampspot",
+        "host": "codeflink.net",
+        "dialect": "mysql"
+    },
+    "test": {
+        "username": "bootcampspot",
+        "password": "LfkEAkNNP2v1",
+        "database": "bootcampspot",
+        "host": "codeflink.net",
+        "dialect": "mysql"
+    },
+    "production": {
+        "username": "bootcampspot",
+        "password": "LfkEAkNNP2v1",
+        "database": "bootcampspot",
+        "host": "codeflink.net",
+        "dialect": "mysql"
+    }
+}
