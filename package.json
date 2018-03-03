@@ -4,7 +4,9 @@
   "description": "Bootcamp Project 2",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.35.0"
   },
   "devDependencies": {},
   "scripts": {
