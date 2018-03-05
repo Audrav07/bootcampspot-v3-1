@@ -18,9 +18,9 @@ app.use(session({
 
 //middleware for setting up a user object when anyone first come to the appplication
 function userSetup(req, res, next) {
-    if (!req.session.user) {
-        req.session.user = {};
-        req.session.user.loggedIn = false;
+    if (!req.session.Student) {
+        req.session.Student = {};
+        req.session.Student.loggedIn = false;
     }
     next();
 }
