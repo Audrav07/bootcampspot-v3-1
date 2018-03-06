@@ -4,20 +4,35 @@
     "password": "bootcamp",
     "database": "bootcampspotV3",
     "host": "bootcampspotv3.coetlkwghhqb.us-west-2.rds.amazonaws.com",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "pool": {
+        "max": 5,
+        "min": 0,
+        "acquire": 90000,
+        "idle": 10000}
   },
   "test": {
     "username": "DUbootcamp",
     "password": "bootcamp",
     "database": "bootcampspotV3",
     "host": "bootcampspotv3.coetlkwghhqb.us-west-2.rds.amazonaws.com",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "pool": {
+        "max": 5,
+        "min": 0,
+        "acquire": 90000,
+        "idle": 10000}
   },
   "production": {
     "username": "DUbootcamp",
     "password": "bootcamp",
     "database": "bootcampspotV3",
     "host": "bootcampspotv3.coetlkwghhqb.us-west-2.rds.amazonaws.com",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "pool": {
+        "max": 5,
+        "min": 0,
+        "acquire": 90000,
+        "idle": 10000}
   }
 }
