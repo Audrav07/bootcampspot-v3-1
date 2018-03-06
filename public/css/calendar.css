@@ -43,7 +43,7 @@
     bottom: 0px;
     width: 80%;
     top: 50px;
-    position: absolute;
+   /* position: absolute;*/
 }
 
 .custom-header {
@@ -556,6 +556,7 @@ _:-ms-input-placeholder, :root .graph {
   color: white;
   font-size: 24px;
   font-weight: 400;
+  margin-bottom: 80px;
 }
 .cards ul {
   padding: 0;
@@ -744,8 +745,14 @@ linear-gradient(to top, #4e4376, #2b5876);
 
 }
 
+.mdl-card__title2 mdl-card--expand mdl-color--teal-300{
+    margin-top: -100px;
+    height:40px;
+}
 
-
+.mdl-card__supporting-text mdl-color-text--grey-600{
+    
+}
 
 .fc-calendar .fc-body {
     position: relative;
@@ -754,7 +761,7 @@ linear-gradient(to top, #4e4376, #2b5876);
     height: -moz-calc(100% - 30px);
     height: -webkit-calc(100% - 30px);
     height: calc(100% - 30px);
-    border: 1px solid #000000;
+/*    border: 1px solid #000000;*/
         color: #ffffff;
 }
 
