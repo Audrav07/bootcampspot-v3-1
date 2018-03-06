@@ -1,24 +1,23 @@
 {
   "development": {
-    "username": "bootcampspot",
-    "password": null,
-    "database": "bootcampspot",
-    "host": "codeflink.net",
-    "dialect": "mysql",
-    "password": "LfkEAkNNP2v1"
+    "username": "DUbootcamp",
+    "password": "bootcamp",
+    "database": "bootcampspotV3",
+    "host": "bootcampspotv3.coetlkwghhqb.us-west-2.rds.amazonaws.com",
+    "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "DUbootcamp",
+    "password": "bootcamp",
+    "database": "bootcampspotV3",
+    "host": "bootcampspotv3.coetlkwghhqb.us-west-2.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "DUbootcamp",
+    "password": "bootcamp",
+    "database": "bootcampspotV3",
+    "host": "bootcampspotv3.coetlkwghhqb.us-west-2.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
