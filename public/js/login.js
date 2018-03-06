@@ -48,15 +48,17 @@ function handleSignInBtn(event) {
 
     //   send user info to login route/db to check info
     $.post("/api/login", userinfo).then(function(res) {
-        //if (res.status !== 200) {
-        //console.log("Email or password does not match");
-        /////////////////////////// Need to add html to show user the error
-        // show message in html that the email or password does not match
-        //} else {
-        // if user exists and the password matches,
-        //user should be loggined in on the back end and redirect to landing page
-        window.location.replace("/landing");
-        //}
+        console.log("this is working");
+        console.log(res.status);
+        if (res.status !== 200) {
+            console.log("Email or password does not match");
+            /////////////////////////// Need to add html to show user the error
+            // show message in html that the email or password does not match
+        } else {
+            // if user exists and the password matches,
+            //user should be loggined in on the back end and redirect to landing page
+            window.location.replace("/landing");
+        }
     });
 }
 
@@ -73,46 +75,54 @@ function handleSignUpBtn(event) {
     const last_name = $("#last-name")
         .val()
         .trim();
-    const user1 = $("#form-email1")
+    const email1 = $("#form-email1")
         .val()
         .trim();
-    const user2 = $("#form-email2")
+    const email2 = $("#form-email2")
         .val()
         .trim();
     const password = $("#form-pass1")
         .val()
         .trim();
+    const userClass = $(".classSignUp")
+        .val()
+        .trim();
 
     console.log(first_name, "firstname");
     console.log(last_name, "lastname");
-    console.log(user1, "email1");
-    console.log(user2, "email2");
+    console.log(email1, "email1");
+    console.log(email2, "email2");
     console.log(password, "pass");
+    console.log(userClass, "class");
 
-    console.log(validateEmail(user1), "this is email input");
-    if (validateEmail(user1)) {
-        if (validateEmail(user2)) {
-            if (user1 === user2) {
+    console.log(validateEmail(email1), "this is email input");
+    if (validateEmail(email1)) {
+        if (validateEmail(email2)) {
+            if (email1 === email2) {
                 console.log("valid emails and they match");
                 //ajax call
-                user = user1;
+                user = email1;
                 const userData = {
                     first_name,
                     last_name,
                     user,
-                    password
+                    password,
+                    userClass
                 };
                 //////////////////////// Need to chnage if sending multiple errors for different reasons
                 // post data for user to be added to database
                 // back end should check to see if user already exists and then add or send back error
                 $.post("/api/signup", userData).then(function(res) {
-                    //if (res.status !== 200) {
-                    ////////////////  error adding to database = show error in html
-                    //console.log("something went wrong with data base");
-                    //} else {
-                    //   everything is good so redirect to landing page
-                    window.location.replace("/landing");
-                    //}
+                    console.log("hello world");
+                    console.log(res);
+                    if (!res.created_at) {
+                        ////////////////  error adding to database = show error in html
+                        console.log("something went wrong with database");
+                    } else {
+                        //   everything is good so redirect to landing page
+                        console.log("It got this far");
+                        window.location.replace("/landing");
+                    }
                 });
             } else {
                 console.log("both valid emails but no match");
