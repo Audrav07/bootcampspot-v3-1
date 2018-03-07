@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "development": {
         "username": "DUbootcamp",
         "password": "bootcamp",
@@ -46,42 +45,3 @@
         }
     }
 }
-=======
-  "development": {
-    "username": "DUbootcamp",
-    "password": "bootcamp",
-    "database": "bootcampspotV3",
-    "host": "bootcampspotv3.coetlkwghhqb.us-west-2.rds.amazonaws.com",
-    "dialect": "mysql",
-    "pool": {
-        "max": 5,
-        "min": 0,
-        "acquire": 90000,
-        "idle": 10000}
-  },
-  "test": {
-    "username": "DUbootcamp",
-    "password": "bootcamp",
-    "database": "bootcampspotV3",
-    "host": "bootcampspotv3.coetlkwghhqb.us-west-2.rds.amazonaws.com",
-    "dialect": "mysql",
-    "pool": {
-        "max": 5,
-        "min": 0,
-        "acquire": 90000,
-        "idle": 10000}
-  },
-  "production": {
-    "username": "DUbootcamp",
-    "password": "bootcamp",
-    "database": "bootcampspotV3",
-    "host": "bootcampspotv3.coetlkwghhqb.us-west-2.rds.amazonaws.com",
-    "dialect": "mysql",
-    "pool": {
-        "max": 5,
-        "min": 0,
-        "acquire": 90000,
-        "idle": 10000}
-  }
-}
->>>>>>> c83fdb7b3fad2cf36c53821b9436f4b1de5e241a
