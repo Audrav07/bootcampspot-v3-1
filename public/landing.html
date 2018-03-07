@@ -3,128 +3,200 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
     <title>Bootcamptspot-V3</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="./css/mdb.min.css" rel="stylesheet">
-
     <link href="./css/signin.css" rel="stylesheet">
+    <link href="./css/calendar.css" rel="stylesheet">
 
-    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <!-- Material Design icon font -->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+
 </head>
-
-
 <!--  testing new branch -->
 
-<body class="mdb-skin">
+<body>
+    <!-- <div class ="bg-image"> -->
 
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-        <div class="mdl-layout__drawer" id="drawer">
-            <span class="mdl-layout-title">Bootcampspot-V3</span>
-            <!-- Sidebar brand image -->
-            <div class="sidebar-image text-center">
-                <i class="material-icons" style="font-size:50px">account_circle</i>
+    <div class="color-overlay">
 
-                <!-- Sidebar brand name -->
+    </div>
+    <div class="layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Welcome to Bootcampspot-V3</span>
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 
-                <p class="usernameHeader"> Name</p>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text">
+                    </div>
+                </div>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+                <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                    <li class="mdl-menu__item">About</li>
+                </ul>
             </div>
-            <hr />
+        </header>
+
+        <div class="drawer mdl-layout__drawer">
+            <header class="drawer-header" id="drawer">
+                <img src="https://21786-presscdn-pagely.netdna-ssl.com/wp-content/uploads/2014/10/red-panda-445px.jpg" class="avatar">
+                <div class="menu-dropdown">
+                    <span>Ramona Flowers</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                        <li class="mdl-menu__item">hello@bootcampspot.com</li>
+                        <li class="mdl-menu__item">info@bootcampspot.com</li>
+                    </ul>
+                </div>
+            </header>
 
 
-            <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" id="navbar" href="/landing"><i class="material-icons" style="padding-right: 10px">home</i>Home</a>
-                <a class="mdl-navigation__link" id="navbar" href=""><i class="material-icons" style="padding-right: 10px">assignment</i>Homework</a>
-                <a class="mdl-navigation__link" id="navbar" href="/class"><i class="material-icons" style="padding-right: 10px">account_balance</i>Class</a>
-                <a class="mdl-navigation__link" id="navbar" href="/calendar"><i class="material-icons" style="padding-right: 10px">today</i>Calendar</a>
-                <a class="mdl-navigation__link" id="navbar" href="/contact"><i class="material-icons" style="padding-right: 10px">mail_outline</i>Contact</a>
-                <a class="mdl-navigation__link" id="navbar" href="/index"><i class="material-icons" style="padding-right: 10px">clear</i>Sign Out</a>
+            <nav class="navigation mdl-navigation">
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">home</i>Home</a>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">assignment</i>Homework</a>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">account_balance</i>Sessions</a>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">today</i>Calendar</a>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">mail_outline</i>Contact</a>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white material-icons" role="presentation">power_settings_new</i>Sign Out</a>
 
             </nav>
         </div>
-    </div>
-    <div class="table-responsive-vertical shadow-z-1">
-        <!-- Table starts here -->
-        <table id="table" class="table table-hover table-mc-light-blue">
-            <thead>
-                <tr>
-                    <th>Sessions</th>
-                </tr>
-                <tr>
 
 
-            </thead>
-            <tbody>
-                <!--  for database -->
-                <div></div>
-                <tr>
-                    <td data-title="Sessions">Lesson 16.1: Testing/Projects
-                        <p>Description</p>
+        <main class="mdl-layout__content">
+            <div class="mdl-grid content">
+                <div class="charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <div class="mdl-card__actions mdl-card--border">
+                        <div class="table-responsive-vertical shadow-z-1">
+                            <!-- Table starts here -->
+
+                            <table class="table table-hover table-mc-light-blue" id="table">
+
+                                <thead>
+                                    <tr>
+                                        <th>Sessions</th>
+                                    </tr>
+                                    <tr></tr>
+                                </thead>
+                                <tbody>
+                                    <!--  for database -->
+                                    <div></div>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">Lesson 16.1: Testing/Projects
+                                        </td>
+                                        <td><span style="float:right">Mon February 26th 2018 6:30pm - 9:30pm MDT</span></td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="checkIn" style="float:right">playlist_add_check</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">Lesson 16.2: Testing/Projects</td>
+                                        <td style="float:right">Mon February 26th 2018 6:30pm - 9:30pm MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="checkIn" style="float:right">playlist_add_check</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Sessions">Lesson 16.3: Testing/Projects</td>
+                                        <td style="float:right">Mon February 26th 2018 6:30pm - 9:30pm MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="checkIn" style="float:right">playlist_add_check</i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table><button class="btn btn-md" id="sessionsBtn" type="button">Show All Sessions</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <br>
+        <main class="mdl-layout__content">
+            <div class="mdl-grid content">
+                <div class="charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+                    <div class="mdl-card__actions mdl-card--border">
+                        <div class="table-responsive-vertical shadow-z-1">
+                            <!-- Table starts here -->
+
+
+                            <table class="table table-hover table-mc-light-blue-homework" id="table1">
+                                <thead style="border-bottom: 1px solid #e0e0e0">
+                                    <tr>
+                                        <th>Homework</th>
+                                    </tr>
+                                    <tr></tr>
+
+                                </thead>
+                                <tbody>
+                                    <!--   for database -->
+                                    <div></div>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Homework">10: MySQL Homework</td>
+                                        <td style="float:right">Due Sun February 11th 2018</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Homework">11: Express.js Homework</td>
+                                        <td style="float:right">Due Sun February 18th 2018</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right">description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Homework">12: MySQL Full Stack App</td>
+                                        <td style="float:right">Due Sun February 25th 2018</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons md-36" id="hw" style="float:right">description</i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table><button class="btn btn-md" id="homeworkBtn" type="button">Show All Homework</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+
+
+        <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 
 
 
 
-                        <a href="#"><i class="material-icons" id="checkIn">playlist_add_check</i></a></td>
-
-                </tr>
-                <tr>
-                    <td data-title="Sessions">Lesson 16.2: Testing/Projects</td>
-
-                </tr>
-                <tr>
-                    <td data-title="Sessions">Lesson 16.3: Testing/Projects</td>
-
-                </tr>
-
-            </tbody>
-        </table>
-
-        <button type="button" class="btn btn-elegant" id="sessionsBtn">Show All Sessions</button>
 
 
-        <div class="table-responsive-vertical shadow-z-1">
 
-            <table id="table1" class="table table-hover table-mc-light-blue-homework">
-                <thead>
-                    <tr>
-                        <th>Homework</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!--   for database -->
-                    <div></div>
-                    <tr>
-                        <td data-title="Homework">10: MySQL Homework</td>
 
-                    </tr>
-                    <tr>
-                        <td data-title="Homework">11: Express.js Homework</td>
 
-                    </tr>
-                    <tr>
-                        <td data-title="Homework">12: MySQL Full Stack App</td>
 
-                    </tr>
 
-                </tbody>
-            </table>
-
-            <button type="button" class="btn btn-elegant" id="homeworkBtn">Show All Homework</button>
-        </div>
-    </div>
-
-    <!-- <main class="mdl-layout__content">
+        <!-- <main class="mdl-layout__content">
 <section class="container">
-
     <div class="row">
     <div class="col">
         <table class="table table-bordered">
@@ -132,12 +204,9 @@
                 <tr>
                     <th class="classTable">Class
                        <button type="button" class="btn btn-elegant" id="sessionsBtn">Show All Sessions</button></th>
-
                 </tr>
             </thead>
-
                 <tbody>
-
                     <tr>
                         <th scope="row">Lesson 1.1: HTML, Git, CSS
                       
@@ -158,7 +227,7 @@
             </div>
         </div>
 </section> -->
-    <!--  <tr>
+        <!--  <tr>
                         <th scope="row">Lesson 2.1: Deployments</th>
                         
                     </tr>
@@ -221,9 +290,8 @@
             </table>
     </div>
    -->
-    <!-- <br>
+        <!-- <br>
 <section class="container1">
-
        <div class="row">
         <div class="col">
         <table class="table table-bordered">
@@ -246,7 +314,7 @@
                     
                     </tr>
  -->
-    <!--  <tr>
+        <!--  <tr>
                         <th scope="row">4</th>
                         
                     </tr>
@@ -282,16 +350,7 @@
                         <th scope="row">12</th>
                         
                     </tr> -->
-
-    </tr>
-    </tbody>
-    </table>
-    </div>
-    </div>
-    </section>
-
-
-    <!--     <div class="left-half">
+        <!--     <div class="left-half">
         <article>
             <h1>Class</h1>
             <table class="table table-bordered">
@@ -307,9 +366,8 @@
         </tr>
     </thead>
     <!Table head-->
-
-    <!--Table body-->
-    <!--  <tbody>
+        <!--Table body-->
+        <!--  <tbody>
         <tr class="table-info">
             <th scope="row">1</th>
             <td></td>
@@ -394,20 +452,18 @@
     </tbody>
 </table> -->
 
+        <!-- SCRIPTS -->
+        <!-- JQuery -->
 
+        <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="./js/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="./js/mdb.min.js"></script>
 
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-
-    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="./js/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="./js/mdb.min.js"></script>
-
-    <!--  <script type="text/javascript" src="../js/page.js"></script>  -->
+        <!--  <script type="text/javascript" src="../js/page.js"></script>  -->
 </body>
 
 </html>
