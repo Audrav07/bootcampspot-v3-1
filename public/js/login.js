@@ -6,27 +6,24 @@ let userErr;
 let emailErr1;
 let emailErr2;
 let emailErrMatch;
+function errMessage(location, errID, message) {
+  $(location).after(`<div id="${errID}" <h5 style="color:red">
+                                        <i class="mdl-color-text--red material-icons">error_outline
+                                        </i> ${message}</h5></div>`);
+}
 let loginErr = {
   signIn: function() {
-    $("#signInBtn").after(`<div id="signIn-error" <h5 style="color:red">
-                                        <i class="mdl-color-text--red material-icons">error_outline
-                                        </i> Invalid email or password</h5></div>`);
+    errMessage("#signInBtn", "signIn-error", "Invalid email or password");
   },
   signUp: {
     email1: function() {
-      $("#signUp-email1").after(`<div id="signUp-error1" <h5 style="color:red">
-                                        <i class="mdl-color-text--red material-icons">error_outline
-                                        </i> Invalid email address</h5></div>`);
+      errMessage("#signUp-email1", "signUp-error1", "Invalid email address");
     },
     email2: function() {
-      $("#signUp-email2").after(`<div id="signUp-error2" <h5 style="color:red">
-                                <i class="mdl-color-text--red material-icons">error_outline
-                                </i> Invalid email address</h5></div>`);
+      errMessage("#signUp-email2", "signUp-error2", "Invalid email address");
     },
     emailMatch: function() {
-      $("#signUpBtn").after(`<div id="signUp-error3" <h5 style="color:red">
-                                  <i class="mdl-color-text--red material-icons">error_outline
-                                  </i> Emails don't match</h5></div>`);
+      errMessage("#signUpBtn", "signUp-error3", "Emails don't match");
     },
     dbErr: function() {
       alert(
