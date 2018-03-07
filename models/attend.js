@@ -5,9 +5,9 @@ module.exports = function(sequelize, DataTypes) {
     }, { underscored: true });
 
     Attend.associate = function(models) {
-        //Attend.hasMany(models.Lesson, { foreignKey: 'id', sourceKey: 'Lesson_id' }, {
-        //onDelete: "cascade"
-        //});
+        Attend.hasMany(models.Lesson, { foreignKey: 'id', sourceKey: 'Lesson_id' }, {
+            onDelete: "cascade"
+        });
         Attend.hasMany(models.Student, { foreignKey: 'id', sourceKey: 'student_id' }, {
             onDelete: "cascade"
         });

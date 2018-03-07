@@ -48,8 +48,6 @@ function handleSignInBtn(event) {
 
     //   send user info to login route/db to check info
     $.post("/api/login", userinfo).then(function(res) {
-        console.log("this is working");
-        console.log(res.status);
         if (res.status !== 200) {
             console.log("Email or password does not match");
             /////////////////////////// Need to add html to show user the error
@@ -84,7 +82,7 @@ function handleSignUpBtn(event) {
     const password = $("#form-pass1")
         .val()
         .trim();
-    const userClass = $(".classSignUp")
+    const userClass = $("#classSelector")
         .val()
         .trim();
 
@@ -113,8 +111,6 @@ function handleSignUpBtn(event) {
                 // post data for user to be added to database
                 // back end should check to see if user already exists and then add or send back error
                 $.post("/api/signup", userData).then(function(res) {
-                    console.log("hello world");
-                    console.log(res);
                     if (!res.created_at) {
                         ////////////////  error adding to database = show error in html
                         console.log("something went wrong with database");
