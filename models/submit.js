@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     const Submit = sequelize.define("Submit", {
-        url: DataTypes.JSON,
+        url: DataTypes.STRING,
         grade: DataTypes.STRING
             // ,
             // created_at: {
