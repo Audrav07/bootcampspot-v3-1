@@ -145,7 +145,7 @@ const dao = {
 	    });
 	},
 	getWeeks: function(cb){
-		const queryString = `SELECT * FROM Weeks`;
+		const queryString = `SELECT id, start FROM Weeks`;
 		connection.query(queryString, function(err, result) {
 	      	if (err) {
 	        	throw err;
