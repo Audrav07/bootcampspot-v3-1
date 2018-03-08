@@ -15,14 +15,14 @@ const dao = {
 	    });
 	},
 	//get current student
-	oneStudent: function(email, cb){
+	oneStudent: function(user, cb){
 		const queryString = `SELECT * FROM Students WHERE user IS ?`;
-		connection.query(queryString, email, function(err, result) {
+		connection.query(queryString, {user}, function(err, result) {
 	      	if (err) {
 	        	throw err;
 	      	}
 	      	else {
-	      		console.log('getting data for student: ', email);
+	      		console.log('getting data for student: ', user);
 	      		cb(result);
 	      	}
 	    });
@@ -42,8 +42,8 @@ const dao = {
 	},
 	//get homework from a specified week
 	weekHW: function(week, cb){
-		const queryString = `SELECT * FROM Homeworks WHERE week IS ?`;
-		connection.query(queryString, week, function(err, result) {
+		const queryString = `SELECT * FROM Homeworks WHERE ?`;
+		connection.query(queryString, {week}, function(err, result) {
 	      	if (err) {
 	        	throw err;
 	      	}
@@ -79,10 +79,23 @@ const dao = {
 	      	}
 	    });
 	},
+	// create new student (sign up)
+	signUp: function(newStudent, cb){
+		const queryString = `INSERT INTO Students (user, password, first_name, last_name, section, picture) VALUES (?)`;
+		connection.query(queryString, {newStudent}, function(err, result) {
+	      	if (err) {
+	        	throw err;
+	      	}
+	      	else {
+	      		console.log('homework turned in');
+	      		cb(result);
+	      	}
+	    });
+	},
 	//turn in homework to Submits table
 	turnIn: function(submit, cb){
 		const queryString = `INSERT INTO Submits (student_id, homework_id, url) VALUES (?)`;
-		connection.query(queryString, submit, function(err, result) {
+		connection.query(queryString, {submit}, function(err, result) {
 	      	if (err) {
 	        	throw err;
 	      	}
@@ -105,15 +118,40 @@ const dao = {
 	      	}
 	    });
 	},
+	//did a student attend a specified class
+	present: function(student, lesson, cb){
+		const queryString = `SELECT * FROM Attends WHERE student_id IS ? AND lesson_id IS ?`;
+		connection.query(queryString, [student, lesson], function(err, result) {
+	      	if (err) {
+	        	throw err;
+	      	}
+	      	else {
+	      		console.log('marked as present');
+	      		cb(result);
+	      	}
+	    });
+	},
 	//delete data using id
 	delete: function(table, id, cb){
-		const queryString = `DELETE FROM ? WHERE id IS ?`;
+		const queryString = `DELETE FROM ?? WHERE id = ?`;
 		connection.query(queryString, [table, id], function(err, result) {
 	      	if (err) {
 	        	throw err;
 	      	}
 	      	else {
 	      		console.log(`deleted id: ${id} from table: ${table}`);
+	      		cb(result);
+	      	}
+	    });
+	},
+	getWeeks: function(cb){
+		const queryString = `SELECT * FROM Weeks`;
+		connection.query(queryString, function(err, result) {
+	      	if (err) {
+	        	throw err;
+	      	}
+	      	else {
+	      		console.log(`get all week info`);
 	      		cb(result);
 	      	}
 	    });

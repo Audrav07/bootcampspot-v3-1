@@ -4,7 +4,7 @@ CREATE TABLE `Students` (
   `password` varchar(255) DEFAULT NULL,
   `first_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
-  `class` varchar(255) DEFAULT NULL,
+  `section` varchar(255) DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -58,4 +58,13 @@ CREATE TABLE `Attends` (
   KEY `student_id` (`student_id`),
   CONSTRAINT `Attends_ibfk_1` FOREIGN KEY (`lesson_id`) REFERENCES `Lessons` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `Attends_ibfk_2` FOREIGN KEY (`student_id`) REFERENCES `Students` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `Weeks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `start` datetime DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;

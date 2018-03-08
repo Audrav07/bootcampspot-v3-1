@@ -1,8 +1,8 @@
-INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,class) values ('jsmith@gmail.com','qwerty','John','Smith','den1023');
-INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,class) values ('tjohnson@gmail.com','asdfgh','Tyler','Johnson','den1023');
-INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,class) values ('alwaysmissing@gmail.com','123456','Jane','Doe','den1023');
-INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,class) values ('fnewton@gmail.com','poiuyt','Fig','Newton','den1023');
-INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,class) values ('jhill@gmail.com','98765','Jess','Hill','den1023');
+INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,section) values ('jsmith@gmail.com','qwerty','John','Smith','den1023');
+INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,section) values ('tjohnson@gmail.com','asdfgh','Tyler','Johnson','den1023');
+INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,section) values ('alwaysmissing@gmail.com','123456','Jane','Doe','den1023');
+INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,section) values ('fnewton@gmail.com','poiuyt','Fig','Newton','den1023');
+INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,section) values ('jhill@gmail.com','98765','Jess','Hill','den1023');
 
 INSERT INTO bootcampspotV3.Lessons (date,week,time,title) values ('2018-02-19','1','6:30-9:30','lesson 1');
 INSERT INTO bootcampspotV3.Lessons (date,week,time,title) values ('2018-02-21','1','6:30-9:30','lesson 2');
@@ -25,6 +25,12 @@ INSERT INTO bootcampspotV3.Homeworks (due,week,title) values ('2018-03-04','2','
 INSERT INTO bootcampspotV3.Homeworks (due,week,title) values ('2018-03-11','3','CSS');
 INSERT INTO bootcampspotV3.Homeworks (due,week,title) values ('2018-03-18','4','Bootstrap');
 INSERT INTO bootcampspotV3.Homeworks (due,week,title) values ('2018-03-25','5','Javascript');
+
+INSERT INTO bootcampspotV3.Weeks (start,title) values ('2018-02-18','week 1');
+INSERT INTO bootcampspotV3.Weeks (start,title) values ('2018-02-25','week 2');
+INSERT INTO bootcampspotV3.Weeks (start,title) values ('2018-03-04','week 3');
+INSERT INTO bootcampspotV3.Weeks (start,title) values ('2018-03-11','week 4');
+INSERT INTO bootcampspotV3.Weeks (start,title) values ('2018-03-18','week 5');
 
 INSERT INTO bootcampspotV3.Attends (lesson_id,student_id) values ('1','1');
 INSERT INTO bootcampspotV3.Attends (lesson_id,student_id) values ('1','2');
