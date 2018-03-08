@@ -11,14 +11,16 @@
    <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet"><!-- Material Design Bootstrap -->
     <link href="./css/mdb.min.css" rel="stylesheet">
-    <link href="./css/signin.css" rel="stylesheet">
+<!--     <link href="./css/signin.css" rel="stylesheet"> -->
 
-
+	<link href="./css/class.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.css">
 <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+
 
  
 </head><!--  testing new branch -->
@@ -75,21 +77,28 @@
           
         </nav>
       </div>
-
+      <main class="mdl-layout__content">
+        <div class="mdl-grid content">
+          <div class="charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+            <div class="mdl-card__actions mdl-card--border">
+    <div class="table-responsive-vertical shadow-z-1">
 
 <table class="table table-hover table-mc-light-blue" id="table">
 
+
             <thead>
                 <tr>
-                    <th>Sessions</th>
+                    <th style=" font-size:20px;">Sessions </th>
+                    <td data-title="Sessions"><button class="btn btn-md" id="sessionsBtn" type="button" style="float:right">Show Filtered Sessions</button></td>
                 </tr>
                 <tr></tr>
+
             </thead>
             <tbody>
                 <!--  for database -->
                 <div></div>
                 <tr style="border-bottom: 1px solid #e0e0e0">
-                    <td data-title="Sessions" style=" float:right">Lesson 1.1: HTML, Git, CSS 
+                    <td data-title="Sessions">Lesson 1.1: HTML, Git, CSS 
                     </td>
                     <td><span style="float:right">Mon Oct 23rd 2017 6:30pm - 9:30pm MDT</span></td>
                     <td>
@@ -742,15 +751,21 @@
                     </td>
                 </tr>
 
-
           
             </tbody>
-        </table><button class="btn btn-md" id="sessionsBtn" type="button">Show Filtered Sessions</button>
+        </table>
+      
     </div>
 </div>
 </div>
 </div>
+
 </main>
+
+
+
+        
+
 </body>
 </html>
 
