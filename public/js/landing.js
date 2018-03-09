@@ -1,19 +1,13 @@
 //////////////////////need to grab the user data
-// let curr;
-// let first;
-// let last;
-// let firstDay;
-// let lastDay;
-// let userData = {};
-// function getUserData() {
-//   $.get("/api/user", function(res) {
-//     userData = res;
-//     console.log("User Data: ", userData);
-//   });
-// }
-// getUserData();
 
-// const moment = require("moment");
+let userData = {};
+function getUserData() {
+  $.get("/api/user").then(function(res) {
+    userData = res;
+    console.log("User Data: ", userData);
+  });
+}
+getUserData();
 
 // vars for session and homework containers
 let sessionTable = $("#table-session");
@@ -22,35 +16,29 @@ getLessons();
 getHomework();
 
 // determines the first and last days of the week.
-function currentWeek(length) {
-  //   curr = new Date(); // get current date
-  //   first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
-  //   last = first + length; // last day is the first day + 6
-  //   firstDay = new Date(curr.setDate(first));
-  //   lastDay = new Date(curr.setDate(last));
-  //   console.log(firstDay + " firstday", lastDay + " lastday");
-}
+// function currentWeek(length) {
+//   curr = new Date(); // get current date
+//   first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
+//   last = first + length; // last day is the first day + 6
+//   firstDay = new Date(curr.setDate(first));
+//   lastDay = new Date(curr.setDate(last));
+//   console.log(firstDay + " firstday", lastDay + " lastday");
+// }
 
 // Function for creating a new list row for lessons
 function createLessonRow(lessonData) {
-  // format date
-  //   let freshDate = moment(lessonData.date).format("ddd MMMM Do YYYY");
-
+  // format date = can't erquire moment bc it is a server side package and this is a client side file
   var newTr = $("<tr>");
   newTr.attr("style", "border-bottom: 1px solid #e0e0e0");
   newTr.append(`<td data-title="${lessonData.title}">${lessonData.title}</td>`);
   newTr.append(
-    `<td data-title="${
+    `<td data-title="${lessonData.date}"><span style="float:right">${
       lessonData.date
-      // }"><span style="float:right">${freshDate} ${
-    }"><span style="float:right">${lessonData.date} ${
-      lessonData.time
-    } MDT</span></td>`
+    } ${lessonData.time} MDT</span></td>`
   );
-  newTr.append(`<a class="waves-effect waves-light btn"><i class="material-icons" id="checkIn" class="${
+  newTr.append(`<td><a href="#"><i class="material-icons check-in" id="${
     lessonData.id
-  }" style="float:right">playlist_add_check</i></a>
-      </td>
+  }" style="float:right">playlist_add_check</i></a></td>
   </tr>`);
 
   return newTr;
@@ -74,14 +62,7 @@ function getLessons() {
     lastDay = new Date(curr.setDate(last));
     console.log(firstDay + " firstday", lastDay + " lastday");
     // currentWeek(6);
-    // curr = new Date(); // get current date
 
-    // first = curr.getDate() - curr.getDay(); // First day is the day of the month - the day of the week
-    // last = first + 6; // last day is the first day + 6
-
-    // firstDay = new Date(curr.setDate(first));
-    // lastDay = new Date(curr.setDate(last));
-    // console.log(firstDay + " firstday", lastDay + " lastday");
     let lessonsWeekArr = [];
 
     for (var i = 0; i < res.length; i++) {
@@ -108,23 +89,15 @@ function getLessons() {
 function createHomeworkRow(homeworkData) {
   // format date
   //   let freshDate = moment(lessonData.date).format("ddd MMMM Do YYYY");
-
-  var newTr = $("<tr>");
-  newTr.attr("style", "border-bottom: 1px solid #e0e0e0");
-  newTr.append(
-    `<td data-title="${homeworkData.title}">${homeworkData.title}</td>`
-  );
-  newTr.append(
-    `<td data-title="${
-      homeworkData.date
-      // }"><span style="float:right">${freshDate} ${
-    }"><span style="float:right">${homeworkData.due}</span></td>`
-  );
-  newTr.append(`<a class="waves-effect waves-light btn"><i class="material-icons" id="checkIn" class="${
+  var newTr = `<tr style", "border-bottom: 1px solid #e0e0e0"> <td data-title="${
+    homeworkData.title
+  }">${homeworkData.title}</td> 
+  <td data-title="${homeworkData.date}"><span style="float:right">${
+    homeworkData.due
+  }</span></td><td><a href="#"><i class="material-icons md-36 submit-hmwk" id="${
     homeworkData.id
-  }" style="float:right">playlist_add_check</i></a>
-        </td>
-    </tr>`);
+  }" style="float:right">description</i></a></td>
+    </tr>`;
 
   return newTr;
 }
@@ -169,3 +142,29 @@ function getHomework() {
     hmwkTable.append(rowsToAdd);
   });
 }
+
+// click events for Attendance and Hmwk submit
+document.on("click", ".check-in", regAttend);
+document.on("click", ".submit-hmwk", submitHomework);
+
+// function to handle click event for class attendance
+function regAttend() {
+  // need userID and lessonID to post into attendance table
+  let attendData = {
+    student_id: userData.id,
+    lesson_id: $(this).id
+  };
+  console.log(attendData);
+  $.post("/api/attend", attendData).then(attendView);
+
+  ///////////////// once attendance is registered, disable the click event
+  //   might be able to do this is in the attendView function
+}
+
+//////////////////// function for atendance button visuals and function ????
+function attendView() {
+  console.log("Thanks for neing here....");
+}
+
+////////////////////functino to submit homework
+function submitHomework() {}
