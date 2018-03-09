@@ -28,13 +28,17 @@ getHomework();
 // Function for creating a new list row for lessons
 function createLessonRow(lessonData) {
   // format date = can't erquire moment bc it is a server side package and this is a client side file
+  let freshDate = moment(lessonData.date).format("ddd MMMM Do YYYY");
+
   var newTr = $("<tr>");
   newTr.attr("style", "border-bottom: 1px solid #e0e0e0");
   newTr.append(`<td data-title="${lessonData.title}">${lessonData.title}</td>`);
   newTr.append(
-    `<td data-title="${lessonData.date}"><span style="float:right">${
+    `<td data-title="${
       lessonData.date
-    } ${lessonData.time} MDT</span></td>`
+    }"><span style="float:right">${freshDate} ${
+      lessonData.time
+    } MDT</span></td>`
   );
   newTr.append(`<td><a href="#"><i class="material-icons check-in" id="${
     lessonData.id
@@ -88,13 +92,13 @@ function getLessons() {
 //////////////// HOMEWORK
 function createHomeworkRow(homeworkData) {
   // format date
-  //   let freshDate = moment(lessonData.date).format("ddd MMMM Do YYYY");
+  let freshDue = moment(homeworkData.due).format("ddd MMMM Do YYYY");
   var newTr = `<tr style", "border-bottom: 1px solid #e0e0e0"> <td data-title="${
     homeworkData.title
   }">${homeworkData.title}</td> 
-  <td data-title="${homeworkData.date}"><span style="float:right">${
+  <td data-title="${
     homeworkData.due
-  }</span></td><td><a href="#"><i class="material-icons md-36 submit-hmwk" id="${
+  }"><span style="float:right">${freshDue}</span></td><td><a href="#"><i class="material-icons md-36 submit-hmwk" id="${
     homeworkData.id
   }" style="float:right">description</i></a></td>
     </tr>`;
