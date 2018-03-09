@@ -87,8 +87,8 @@ const dao = {
     },
     // create new student (sign up)
     signUp: function(newStudent, callback){
-        const queryString = `INSERT INTO Students (user, password, first_name, last_name, section, picture) VALUES (?)`;
-        connection.query(queryString, {newStudent}, function(err, result) {
+        const queryString = `INSERT INTO Students (user, password, first_name, last_name, section) VALUES (?,?,?,?,?)`;
+        connection.query(queryString, [newStudent.user, newStudent.password, newStudent.first_name, newStudent.last_name, newStudent.section], function(err, result) {
             if (err) {
                 throw err;
             }
@@ -172,6 +172,19 @@ const dao = {
     getWeeks: function(callback){
         const queryString = `SELECT id, start FROM Weeks`;
         connection.query(queryString, function(err, result) {
+            if (err) {
+                throw err;
+            }
+            else {
+                console.log(`get all week info`);
+                //callback controls when the request is run
+                callback(result);
+            }
+        });
+    },
+    updatePassword: function(password, student, callback){
+        const queryString = `UPDATE Students SET password = ? WHERE id = ?`;
+        connection.query(queryString, [password, student],function(err, result) {
             if (err) {
                 throw err;
             }
