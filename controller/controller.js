@@ -89,16 +89,16 @@ module.exports = function(app) {
     });
 
     //If no matching route is found default to home
-    app.get("*", function(req, res) {
-        if (req.session.Student.loggedIn === true) {
-            res.sendFile(path.join(__dirname, "../public/landing.html"));
-        } else {
-            res.sendFile(path.join(__dirname, "../public/index.html"));
-            dao.allStudent(function(data) {
-                console.log(data);
-            });
-        }
-    });
+    // app.get("*", function(req, res) {
+    //     if (req.session.Student.loggedIn === true) {
+    //         res.sendFile(path.join(__dirname, "../public/landing.html"));
+    //     } else {
+    //         res.sendFile(path.join(__dirname, "../public/index.html"));
+    //         dao.allStudent(function(data) {
+    //             console.log(data);
+    //         });
+    //     }
+    // });
     //==================================API Routes===============================================
     app.get("/api/lessons", function(req, res) {
         dao.allLesson(function(data) {
@@ -144,7 +144,6 @@ module.exports = function(app) {
                         //here the session's user object is updated with the users data. we can hit our /session endpoing witha  get request from the front end and get our user object.
                         req.session.Student.currentUser = studentObj;
                         res.json({ status: 200 });
-                        console.log(req.session.Student);
                     }
                 });
             }
@@ -175,7 +174,7 @@ module.exports = function(app) {
         });
     });
     app.get("/api/user", function(req, res) {
-        console.log(res.json(req.session.Student.currentUser));
+        res.json(req.session.Student.currentUser);
     });
 };
 
