@@ -82,7 +82,7 @@ function handleSignUpBtn(event) {
     const password = $("#form-pass1")
         .val()
         .trim();
-    const userClass = $("#classSelector")
+    const section = $("#classSelector")
         .val()
         .trim();
 
@@ -91,7 +91,7 @@ function handleSignUpBtn(event) {
     console.log(email1, "email1");
     console.log(email2, "email2");
     console.log(password, "pass");
-    console.log(userClass, "class");
+    console.log(section, "class");
 
     console.log(validateEmail(email1), "this is email input");
     if (validateEmail(email1)) {
@@ -100,17 +100,17 @@ function handleSignUpBtn(event) {
                 console.log("valid emails and they match");
                 //ajax call
                 user = email1;
-                const userData = {
+                const newStudent = {
                     first_name,
                     last_name,
                     user,
                     password,
-                    userClass
+                    section
                 };
                 //////////////////////// Need to chnage if sending multiple errors for different reasons
                 // post data for user to be added to database
                 // back end should check to see if user already exists and then add or send back error
-                $.post("/api/signup", userData).then(function(res) {
+                $.post("/api/signup", newStudent).then(function(res) {
                     if (!res.created_at) {
                         ////////////////  error adding to database = show error in html
                         console.log("something went wrong with database");

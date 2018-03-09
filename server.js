@@ -2,7 +2,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var session = require('express-session');
-var db = require('./models');
 
 var app = express();
 app.use(express.static('./public'));
@@ -33,12 +32,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-require('./routes/apiRoutes')(app);
-require('./routes/htmlRoutes')(app);
+require("./routes/controller.js")(app);
 
+const mediator = require('./mediator');
+console.log("starting Server");
 
-
-db.sequelize.sync({ force: false }).then(function() {
+mediator.observers.push((emitted) => {
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
     });

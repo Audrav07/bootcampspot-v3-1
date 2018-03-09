@@ -11,9 +11,9 @@
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="./css/mdb.min.css" rel="stylesheet">
-    <link href="./css/signin.css" rel="stylesheet">
+    <!--     <link href="./css/signin.css" rel="stylesheet"> -->
 
-
+    <link href="./css/homework.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
@@ -21,11 +21,12 @@
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
 
+
+
 </head>
 <!--  testing new branch -->
 
 <body>
-    <!-- <div class ="bg-image"> -->
 
     <div class="color-overlay">
 
@@ -78,135 +79,201 @@
 
             </nav>
         </div>
-
-
         <main class="mdl-layout__content">
             <div class="mdl-grid content">
                 <div class="charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
                     <div class="mdl-card__actions mdl-card--border">
-
                         <div class="table-responsive-vertical shadow-z-1">
-                            <!-- Table starts here -->
 
                             <table class="table table-hover table-mc-light-blue" id="table">
 
+
                                 <thead>
                                     <tr>
-                                        <th style="font-size: 20px;">Sessions </th>
+                                        <th style=" font-size:20px;">Homework </th>
+                                        <td data-title="Sessions"><button class="btn btn-md" id="homeworkBtn" type="button" style="float:right">Show Filtered Homework</button></td>
                                     </tr>
-
                                     <tr></tr>
+
                                 </thead>
                                 <tbody>
                                     <!--  for database -->
                                     <div></div>
                                     <tr style="border-bottom: 1px solid #e0e0e0">
-                                        <td data-title="Sessions">Lesson 16.1: Testing/Projects
+                                        <td data-title="Sessions">1: HTML, CSS Homework
                                         </td>
-                                        <td><span style="float:right">Mon February 26th 2018 6:30pm - 9:30pm MDT</span></td>
+                                        <td><span style="float:right">Due On: Nov 5 2017 12:00pm MDT</span></td>
                                         <td>
-                                            <a href="#"><i class="material-icons" id="checkIn" style="float:right">playlist_add_check</i></a>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
                                         </td>
                                     </tr>
                                     <tr style="border-bottom: 1px solid #e0e0e0">
-                                        <td data-title="Sessions">Lesson 16.2: Testing/Projects</td>
-                                        <td style="float:right">Mon February 26th 2018 6:30pm - 9:30pm MDT</td>
+                                        <td data-title="Sessions">Web Development Prework</td>
+                                        <td style="float:right">Due On: Nov 6 2017 12:00am MDT</td>
                                         <td>
-                                            <a href="#"><i class="material-icons" id="checkIn" style="float:right">playlist_add_check</i></a>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td data-title="Sessions">Lesson 16.3: Testing/Projects</td>
-                                        <td style="float:right">Mon February 26th 2018 6:30pm - 9:30pm MDT</td>
+                                        <td data-title="Sessions">2: CSS Framework and Media Queries</td>
+                                        <td style="float:right">Due On: Nov 11 2017 9:00am MDT</td>
                                         <td>
-                                            <a href="#"><i class="material-icons" id="checkIn" style="float:right">playlist_add_check</i></a>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
                                         </td>
                                     </tr>
-
-                                </tbody>
-
-                            </table>
-                            <button class="btn btn-md" id="sessionsBtn" type="button">Show All Sessions</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <br>
-        <main class="mdl-layout__content">
-            <div class="mdl-grid content">
-                <div class="charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-                    <div class="mdl-card__actions mdl-card--border">
-                        <div class="table-responsive-vertical shadow-z-1">
-                            <!-- Table starts here -->
-
-
-                            <table class="table table-hover table-mc-light-blue-homework" id="table1">
-                                <thead style="border-bottom: 1px solid #e0e0e0">
-                                    <tr>
-                                        <th style="font-size: 20px;">Homework</th>
-                                    </tr>
-                                    <tr></tr>
-
-                                </thead>
-                                <tbody>
-                                    <!--   for database -->
-                                    <div></div>
                                     <tr style="border-bottom: 1px solid #e0e0e0">
-                                        <td data-title="Homework">10: MySQL Homework</td>
-                                        <td style="float:right">Due Sun February 11th 2018</td>
+                                        <td data-title="Sessions">3: JavaScript Homework
+                                        </td>
+                                        <td><span style="float:right">Due On: Nov 18 2017 9:00am MDT</span></td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">4: jQuery Homework</td>
+                                        <td style="float:right">Due On: Dec 8 2017 11:59am MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Sessions">5: jQuery and JavaScript Homework</td>
+                                        <td style="float:right">Due On: Dec 6 2017 6:30pm MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">6: APIs and AJAX Homework
+                                        </td>
+                                        <td><span style="float:right">Due On: Dec 17 2017 12:00am MDT</span></td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">Firebase Homework</td>
+                                        <td style="float:right">Due On: Jan 7 2018 12:00am MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Sessions">Project 1</td>
+                                        <td style="float:right">Due On: Jan 13 2018 12:00am MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">8: Node.js Homework
+                                        </td>
+                                        <td><span style="float:right">Due On: Jan 28 2018 12:00am MDT</span></td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">9: Advanced JavaScript Homework</td>
+                                        <td style="float:right">Due On: Feb 4 2018 12:00am MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Sessions">10: MySQL Homework</td>
+                                        <td style="float:right">Due On: Feb 11 2018 12:00am MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">11: Express.js Homework
+                                        </td>
+                                        <td><span style="float:right">Due On: Feb 18 2018 12:00am MDT</span></td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">12: MySQL Full Stack App</td>
+                                        <td style="float:right">Due On: Feb 25 2018 12:00am MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Sessions">13: Sequelize Homework (Optional)</td>
+                                        <td style="float:right">SDue On: Mar 4 2018 12:00am MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">Project 2
+                                        </td>
+                                        <td><span style="float:right">Due On Mar 11 2018 12:00am MDT</span></td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">14: MongoDB Homework</td>
+                                        <td style="float:right">Due On: Apr 2018 12:00am MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Sessions">15: React Homework</td>
+                                        <td style="float:right">Due On: Apr 8 2018 12:00am MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">16: Regionalized HW
+                                        </td>
+                                        <td><span style="float:right">Due On: Apr 22 2018 12:00am MDT</span></td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0">
+                                        <td data-title="Sessions">Project 3</td>
+                                        <td style="float:right">Due On: Apr 28 2018 9:00am MDT</td>
+                                        <td>
+                                            <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td data-title="Sessions">Networking Practice</td>
+                                        <td style="float:right">Due On: Apr 28 2018 11:59pm MDT</td>
                                         <td>
                                             <a href="#"><i class="material-icons" id="hw" style="float:right" >description</i></a>
                                         </td>
                                     </tr>
 
-                                    <tr style="border-bottom: 1px solid #e0e0e0">
-                                        <td data-title="Homework">11: Express.js Homework</td>
-                                        <td style="float:right">Due Sun February 18th 2018</td>
-                                        <td>
-                                            <a href="#"><i class="material-icons" id="hw" style="float:right">description</i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td data-title="Homework">12: MySQL Full Stack App</td>
-                                        <td style="float:right">Due Sun February 25th 2018</td>
-                                        <td>
-                                            <a href="#"><i class="material-icons md-36" id="hw" style="float:right">description</i></a>
-                                        </td>
-                                    </tr>
+
                                 </tbody>
-                            </table><button class="btn btn-md" id="homeworkBtn" type="button">Show All Homework</button>
+                            </table>
+
                         </div>
                     </div>
                 </div>
             </div>
-    </div>
 
-    </main>
-
-    <!-- <script type="text/javascript">
-    $("#checkIn").on("click", function(){
-    var color = clicked ? 'red' : 'blue';
-    $(this).css('background-color', color);
-    clicked = !clicked;
-});
-</script> -->
-
-
-    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        </main>
 
 
 
 
 
+</body>
 
+</html>
 
-
-
-
-
-
-    <!-- <main class="mdl-layout__content">
+<!-- <main class="mdl-layout__content">
 <section class="container">
     <div class="row">
     <div class="col">
@@ -238,7 +305,7 @@
             </div>
         </div>
 </section> -->
-    <!--  <tr>
+<!--  <tr>
                         <th scope="row">Lesson 2.1: Deployments</th>
                         
                     </tr>
@@ -301,7 +368,7 @@
             </table>
     </div>
    -->
-    <!-- <br>
+<!-- <br>
 <section class="container1">
        <div class="row">
         <div class="col">
@@ -325,7 +392,7 @@
                     
                     </tr>
  -->
-    <!--  <tr>
+<!--  <tr>
                         <th scope="row">4</th>
                         
                     </tr>
@@ -361,7 +428,7 @@
                         <th scope="row">12</th>
                         
                     </tr> -->
-    <!--     <div class="left-half">
+<!--     <div class="left-half">
         <article>
             <h1>Class</h1>
             <table class="table table-bordered">
@@ -377,8 +444,8 @@
         </tr>
     </thead>
     <!Table head-->
-    <!--Table body-->
-    <!--  <tbody>
+<!--Table body-->
+<!--  <tbody>
         <tr class="table-info">
             <th scope="row">1</th>
             <td></td>
@@ -462,24 +529,3 @@
         </tr>
     </tbody>
 </table> -->
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script src="../js/jquery-3.2.1.min.js" type="text/javascript">
-    </script>
-    <!-- Bootstrap tooltips -->
-
-    <script src="../js/popper.min.js" type="text/javascript">
-    </script>
-    <!-- Bootstrap core JavaScript -->
-
-    <script src="../js/bootstrap.min.js" type="text/javascript">
-    </script>
-    <!-- MDB core JavaScript -->
-
-    <script src="../js/mdb.min.js" type="text/javascript">
-    </script>
-    <!--   <script type="text/javascript" src="../js/page.js">
-    </script>  -->
-</body>
-
-</html>
