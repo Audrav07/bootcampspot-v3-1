@@ -88,17 +88,6 @@ module.exports = function(app) {
         }
     });
 
-    //If no matching route is found default to home
-    // app.get("*", function(req, res) {
-    //     if (req.session.Student.loggedIn === true) {
-    //         res.sendFile(path.join(__dirname, "../public/landing.html"));
-    //     } else {
-    //         res.sendFile(path.join(__dirname, "../public/index.html"));
-    //         dao.allStudent(function(data) {
-    //             console.log(data);
-    //         });
-    //     }
-    // });
     //==================================API Routes===============================================
     app.get("/api/lessons", function(req, res) {
         dao.allLesson(function(data) {
@@ -176,8 +165,16 @@ module.exports = function(app) {
     app.get("/api/user", function(req, res) {
         res.json(req.session.Student.currentUser);
     });
+    //=============================Last HTML Route========================================
+    // If no matching route is found default to home
+    app.get("*", function(req, res) {
+        if (req.session.Student.loggedIn === true) {
+            res.sendFile(path.join(__dirname, "../public/landing.html"));
+        } else {
+            res.sendFile(path.join(__dirname, "../public/index.html"));
+            dao.allStudent(function(data) {
+                console.log(data);
+            });
+        }
+    });
 };
-
-
-// Export routes for server.js to use.
-// module.exports = app;
