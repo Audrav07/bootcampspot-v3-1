@@ -63,7 +63,7 @@ const dao = {
     },
     //get lesson data from a sepcified week
     weekLesson: function(week, cb) {
-        const queryString = `SELECT * FROM Lessons WHERE week IS ?`;
+        const queryString = `SELECT * FROM Lessons WHERE ?`;
         connection.query(queryString, week, function(err, result) {
             if (err) {
                 throw err;
@@ -75,13 +75,26 @@ const dao = {
     },
     // create new student (sign up)
     signUp: function(newStudent, cb) {
-        const queryString = `INSERT INTO Students (user, password, first_name, last_name, section, picture) VALUES (?)`;
-        connection.query(queryString, { newStudent }, function(err, result) {
+        console.log(newStudent);
+        const queryString = `INSERT INTO Students (user, password, first_name, last_name, section) VALUES (?,?,?,?,?)`;
+        connection.query(queryString, [newStudent.user, newStudent.password, newStudent.first_name, newStudent.last_name, newStudent.section], function(err, result) {
             if (err) {
                 throw err;
             } else {
                 console.log('homework turned in');
                 cb(result);
+            }
+        });
+    },
+    updatePassword: function(password, student, callback) {
+        const queryString = `UPDATE Students SET password = ? WHERE id = ?`;
+        connection.query(queryString, [password, student], function(err, result) {
+            if (err) {
+                throw err;
+            } else {
+                console.log(`updating password`);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },

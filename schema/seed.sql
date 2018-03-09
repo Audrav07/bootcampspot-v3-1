@@ -1,9 +1,3 @@
-INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,class) values ('jsmith@gmail.com','qwerty','John','Smith','den1023');
-INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,class) values ('tjohnson@gmail.com','asdfgh','Tyler','Johnson','den1023');
-INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,class) values ('alwaysmissing@gmail.com','123456','Jane','Doe','den1023');
-INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,class) values ('fnewton@gmail.com','poiuyt','Fig','Newton','den1023');
-INSERT INTO bootcampspotV3.Students (user,password,first_name,last_name,class) values ('jhill@gmail.com','98765','Jess','Hill','den1023');
-
 INSERT INTO bootcampspotV3.Lessons (date,week,time,title) values ('2018-02-19','1','6:30-9:30','lesson 1');
 INSERT INTO bootcampspotV3.Lessons (date,week,time,title) values ('2018-02-21','1','6:30-9:30','lesson 2');
 INSERT INTO bootcampspotV3.Lessons (date,week,time,title) values ('2018-02-24','1','10:00-2:00','lesson 3');

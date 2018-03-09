@@ -111,7 +111,8 @@ function handleSignUpBtn(event) {
                 // post data for user to be added to database
                 // back end should check to see if user already exists and then add or send back error
                 $.post("/api/signup", newStudent).then(function(res) {
-                    if (!res.created_at) {
+                    console.log(res);
+                    if (res.affectedRows === 0) {
                         ////////////////  error adding to database = show error in html
                         console.log("something went wrong with database");
                     } else {
