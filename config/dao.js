@@ -105,6 +105,18 @@ const dao = {
 	      	}
 	    });
 	},
+	// turnIn: function(submit, cb){
+	// 	const queryString = `INSERT INTO Submits (student_id, homework_id, url) VALUES (?,?,?)`;
+	// 	connection.query(queryString, [submit.student_id, submit.homework_id, submit.url], function(err, result) {
+	//       	if (err) {
+	//         	throw err;
+	//       	}
+	//       	else {
+	//       		console.log('homework turned in');
+	//       		cb(result);
+	//       	}
+	//     });
+	// },
 	//mark at attendence as present
 	present: function(student, lesson, cb){
 		const queryString = `INSERT INTO Attends (student_id, lesson_id) VALUES (?,?)`;
@@ -119,8 +131,8 @@ const dao = {
 	    });
 	},
 	//did a student attend a specified class
-	present: function(student, lesson, cb){
-		const queryString = `SELECT * FROM Attends WHERE student_id IS ? AND lesson_id IS ?`;
+	attendance: function(student, lesson, cb){
+		const queryString = `SELECT * FROM Attends WHERE student_id = ? AND lesson_id = ?`;
 		connection.query(queryString, [student, lesson], function(err, result) {
 	      	if (err) {
 	        	throw err;
