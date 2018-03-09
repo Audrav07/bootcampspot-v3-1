@@ -1,158 +1,184 @@
 var connection = require("../config/connection.js");
 
 const dao = {
-    //get all students
-    allStudent: function(cb) {
+    //get all student data from database
+    allStudent: function(callback){
         const queryString = `SELECT * FROM Students`;
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log('getting all student data');
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
-    //get current student
-    oneStudent: function(user, cb) {
+    //get a single student's data
+    oneStudent: function(user, callback){
         const queryString = `SELECT * FROM Students WHERE ?`;
-        connection.query(queryString, { user }, function(err, result) {
+        connection.query(queryString, {user}, function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log('getting data for student: ', user);
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
     //get all homework data
-    allHW: function(cb) {
+    allHW: function(callback){
         const queryString = `SELECT * FROM Homeworks`;
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log('getting all homework data');
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
     //get homework from a specified week
-    weekHW: function(week, cb) {
+    weekHW: function(week, callback){
         const queryString = `SELECT * FROM Homeworks WHERE ?`;
-        connection.query(queryString, { week }, function(err, result) {
+        connection.query(queryString, {week}, function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log('getting homework data for week ', week);
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
     //get all lesson data
-    allLesson: function(cb) {
+    allLesson: function(callback){
         const queryString = `SELECT * FROM Lessons`;
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log('getting all lesson data');
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
     //get lesson data from a sepcified week
-    weekLesson: function(week, cb) {
+    weekLesson: function(week, callback){
         const queryString = `SELECT * FROM Lessons WHERE week IS ?`;
         connection.query(queryString, week, function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log('getting lesson data for week ', week);
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
     // create new student (sign up)
-    signUp: function(newStudent, cb) {
+    signUp: function(newStudent, callback){
         const queryString = `INSERT INTO Students (user, password, first_name, last_name, section, picture) VALUES (?)`;
-        connection.query(queryString, { newStudent }, function(err, result) {
+        connection.query(queryString, {newStudent}, function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log('homework turned in');
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
     //turn in homework to Submits table
-    turnIn: function(submit, cb) {
+    turnIn: function(submit, cb){
         const queryString = `INSERT INTO Submits (student_id, homework_id, url) VALUES (?)`;
-        connection.query(queryString, { submit }, function(err, result) {
+        connection.query(queryString, {submit}, function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log('homework turned in');
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
+    //Alternate version of turning in a new homework
     // turnIn: function(submit, cb){
-    // 	const queryString = `INSERT INTO Submits (student_id, homework_id, url) VALUES (?,?,?)`;
-    // 	connection.query(queryString, [submit.student_id, submit.homework_id, submit.url], function(err, result) {
-    //       	if (err) {
-    //         	throw err;
-    //       	}
-    //       	else {
-    //       		console.log('homework turned in');
-    //       		cb(result);
-    //       	}
+    //  const queryString = `INSERT INTO Submits (student_id, homework_id, url) VALUES (?,?,?)`;
+    //  connection.query(queryString, [submit.student_id, submit.homework_id, submit.url], function(err, result) {
+    //          if (err) {
+    //          throw err;
+    //          }
+    //          else {
+    //              console.log('homework turned in');
+    //              //callback controls when the request is run
+    //              cb(result);
+    //          }
     //     });
     // },
     //mark at attendence as present
-    present: function(student, lesson, cb) {
+    present: function(student, lesson, callback){
         const queryString = `INSERT INTO Attends (student_id, lesson_id) VALUES (?,?)`;
         connection.query(queryString, [student, lesson], function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log('marked as present');
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
     //did a student attend a specified class
-    attendance: function(student, lesson, cb) {
+    attendance: function(student, lesson, callback){
         const queryString = `SELECT * FROM Attends WHERE student_id = ? AND lesson_id = ?`;
         connection.query(queryString, [student, lesson], function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log('marked as present');
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
     //delete data using id
-    delete: function(table, id, cb) {
+    delete: function(table, id, callback){
         const queryString = `DELETE FROM ?? WHERE id = ?`;
         connection.query(queryString, [table, id], function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log(`deleted id: ${id} from table: ${table}`);
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     },
-    getWeeks: function(cb) {
+    getWeeks: function(callback){
         const queryString = `SELECT id, start FROM Weeks`;
         connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
-            } else {
+            }
+            else {
                 console.log(`get all week info`);
-                cb(result);
+                //callback controls when the request is run
+                callback(result);
             }
         });
     }
