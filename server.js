@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-require("./routes/controller.js")(app);
+require("./controller/controller.js")(app);
 
 const mediator = require('./mediator');
 console.log("starting Server");
