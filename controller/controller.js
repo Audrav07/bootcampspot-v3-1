@@ -155,10 +155,13 @@ module.exports = function(app) {
                 };
 
                 dao.signUp(newStudent, function(data) {
+                    var studentObj = { id: data.insertId, name: newStudent.first_name + " " + newStudent.last_name, user: newStudent.user };
                     req.session.Student.loggedIn = true;
-                    req.session.Student.currentUser = newStudent;
+                    req.session.Student.currentUser = studentObj;
                     res.json(data);
                 });
+
+
             });
         });
     });
