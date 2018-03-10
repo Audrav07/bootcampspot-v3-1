@@ -27,7 +27,7 @@ getHomework();
 
 // Function for creating a new list row for lessons
 function createLessonRow(lessonData) {
-  // format date = can't erquire moment bc it is a server side package and this is a client side file
+  // format date = can't require moment bc it is a server side package and this is a client side file
   let freshDate = moment(lessonData.date).format("ddd MMMM Do YYYY");
 
   var newTr = $("<tr>");
@@ -89,6 +89,30 @@ function getLessons() {
   });
 }
 
+// click events for Attendance
+$("body").on("click", ".check-in", regAttend);
+
+//////////////////// function for atendance button visuals and function ????
+function attendView() {
+  alert(
+    "Thanks for being here....now take a required survey. JK - you dont have to."
+  );
+}
+
+// function to handle click event for class attendance
+function regAttend() {
+  console.log("click event working");
+  // need userID and lessonID to post into attendance table
+  let attendData = {
+    student_id: userData.id,
+    lesson_id: this.id
+  };
+  console.log("Attend data ", attendData);
+  $.post("/api/attend", attendData).then(attendView);
+
+  ///////////////// once attendance is registered, disable the click event
+  //   might be able to do this is in the attendView function
+}
 //////////////// HOMEWORK
 function createHomeworkRow(homeworkData) {
   // format date
@@ -98,13 +122,53 @@ function createHomeworkRow(homeworkData) {
   }">${homeworkData.title}</td> 
   <td data-title="${
     homeworkData.due
-  }"><span style="float:right">${freshDue}</span></td><td><a href="#"><i class="material-icons md-36 submit-hmwk" id="${
+  }"><span style="float:right">${freshDue}</span></td><td><a href="#"><i class="material-icons md-36 hmwkFormToggle" id="icon${
     homeworkData.id
   }" style="float:right">description</i></a></td>
-    </tr>`;
+    </tr><tr>
+    <td id="hmwkForm${homeworkData.id}">
+    <div class="row" >
+  <form class="col s12">
+    <div class="row" >
+      <div class="input-field col s6" >
+      <div class="row"
+        <div class="hey">Submit Homework and Comments</div>
+        </div>
+        <input id="hmwk${homeworkData.id}-url1" type="text" class="validate">
+        <label for="hmwk${homeworkData.id}-url1" class="added">Add URLs</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="hmwk${homeworkData.id}-url2" type="text" class="validate">
+        <label for="hmwk${
+          homeworkData.id
+        }-url2" class="opt">Add Another URL</label>
+        <button class="btn btn-sm submit-hmwk" type="button" id="${
+          homeworkData.id
+        }" >Submit</button>
+      </div>
+    </div>
+      </td></tr>`;
 
   return newTr;
 }
+
+//////////////////// Can't get this to work.....
+body.on("click", "hmwkFormToggle", function() {
+  console.log("hmwk form click test");
+});
+
+let showForm = true;
+function hwmkFormView() {
+  console.log("hmwkFORM click working");
+  if ((showForm = true)) {
+    $(`#hmwkForm${homeworkData.id}`).hide();
+    showForm = false;
+  } else {
+    $(`#hmwkForm${homeworkData.id}`).show();
+    showForm = true;
+  }
+}
+/////////////////////
 
 function getHomework() {
   $.get("/api/homeworks").then(function(res) {
@@ -147,28 +211,29 @@ function getHomework() {
   });
 }
 
-// click events for Attendance and Hmwk submit
-document.on("click", ".check-in", regAttend);
-document.on("click", ".submit-hmwk", submitHomework);
+// click event for homework
+$("body").on("click", ".submit-hmwk", submitHomework);
 
-// function to handle click event for class attendance
-function regAttend() {
-  // need userID and lessonID to post into attendance table
-  let attendData = {
+////////////////////function to submit homework
+function submitHomework() {
+  event.preventDefault();
+  console.log("submit hmwk click working");
+  let hmwkLinksData = {
     student_id: userData.id,
-    lesson_id: $(this).id
+    homework_id: this.id,
+    url1: $(`#hmwk${this.id}-url1`)
+      .val()
+      .trim(),
+    url2: $(`#hmwk${this.id}-url2`)
+      .val()
+      .trim()
   };
-  console.log(attendData);
-  $.post("/api/attend", attendData).then(attendView);
-
-  ///////////////// once attendance is registered, disable the click event
-  //   might be able to do this is in the attendView function
+  console.log("hmwk obj: ", hmwkLinksData);
+  $.post("/api/submitHMWK", hmwkLinksData).then(hmwkSubmitted);
 }
 
-//////////////////// function for atendance button visuals and function ????
-function attendView() {
-  console.log("Thanks for neing here....");
+function hmwkSubmitted() {
+  $(`#hmwk${this.id}-url1`).val("");
+  $(`#hmwk${this.id}-url2`).val("");
+  alert("Homework submitted....we will grade it whenever we feel like it.");
 }
-
-////////////////////functino to submit homework
-function submitHomework() {}
