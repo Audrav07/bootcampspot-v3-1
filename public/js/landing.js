@@ -5,6 +5,7 @@ function getUserData() {
   $.get("/api/user").then(function(res) {
     userData = res;
     console.log("User Data: ", userData);
+    $(".studentName").text(`${userData.first_name} ${userData.last_name}`);
   });
 }
 getUserData();
