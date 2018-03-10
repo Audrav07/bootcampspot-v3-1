@@ -166,7 +166,7 @@ module.exports = function(app) {
         });
     });
     app.get("/api/user", function(req, res) {
-        res.json(req.session.Student.currentUser);
+        res.json(req.session.Student);
     });
     //=============================Last HTML Route========================================
     // If no matching route is found default to home
