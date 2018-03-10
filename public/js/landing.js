@@ -1,8 +1,9 @@
 //////////////////////need to grab the user data
 
 let userData = {};
+
 function getUserData() {
-    $.get("/api/user").then(function (res) {
+    $.get("/api/user").then(function(res) {
         userData = res;
         console.log("User Data: ", userData);
         // change the name on the page to reflect user's name
@@ -51,7 +52,7 @@ function createLessonRow(lessonData) {
 }
 
 function getLessons() {
-    $.get("/api/lessons").then(function (res) {
+    $.get("/api/lessons").then(function(res) {
         console.log(res);
         // get the current week
         let curr;
@@ -157,6 +158,7 @@ function createHomeworkRow(homeworkData) {
 $("body").on("click", ".hmwkFormToggle", hwmkFormView);
 
 let showForm = true;
+
 function hwmkFormView() {
     console.log("hmwkFORM click working");
     if (showForm === true) {
@@ -169,7 +171,7 @@ function hwmkFormView() {
 }
 
 function getHomework() {
-    $.get("/api/homeworks").then(function (res) {
+    $.get("/api/homeworks").then(function(res) {
         console.log(res);
         // get the current week
         let curr;
@@ -216,22 +218,25 @@ $("body").on("click", ".submit-hmwk", submitHomework);
 function submitHomework() {
     event.preventDefault();
     console.log("submit hmwk click working");
-    let hmwkLinksData = {
-        student_id: userData.id,
-        homework_id: this.id,
-        url1: $(`#hmwk${this.id}-url1`)
-            .val()
-            .trim(),
-        url2: $(`#hmwk${this.id}-url2`)
-            .val()
-            .trim()
-    };
+    alert("Homework submitted....we will grade it whenever we feel like it.");
+    // let hmwkLinksData = {
+    //     student_id: userData.id,
+    //     homework_id: this.id,
+    //     url1: $(`#hmwk${this.id}-url1`)
+    //         .val()
+    //         .trim(),
+    //     url2: $(`#hmwk${this.id}-url2`)
+    //         .val()
+    //         .trim()
+    // };
     console.log("hmwk obj: ", hmwkLinksData);
-    $.post("/api/submitHMWK", hmwkLinksData).then(hmwkSubmitted);
+    //$
+    //$.post("/api/submitHMWK", hmwkLinksData).then(hmwkSubmitted);
+    // hmwkSubmitted();
 }
 
-function hmwkSubmitted() {
-    $(`#hmwk${this.id}-url1`).val("");
-    $(`#hmwk${this.id}-url2`).val("");
-    alert("Homework submitted....we will grade it whenever we feel like it.");
-}
+// function hmwkSubmitted() {
+//     //$(`#hmwk${this.id}-url1`).val("");
+//     //$(`#hmwk${this.id}-url2`).val("");
+//     alert("Homework submitted....we will grade it whenever we feel like it.");
+// }

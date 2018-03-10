@@ -92,6 +92,13 @@ module.exports = function(app) {
     app.get("/api/lessons", function(req, res) {
         dao.allLesson(function(data) {
             console.log(data);
+            res.json(data);
+        });
+    });
+    app.get("/api/homeworks", function(req, res) {
+        dao.allHW(function(data) {
+            console.log(data);
+            res.json(data);
         });
     });
 
