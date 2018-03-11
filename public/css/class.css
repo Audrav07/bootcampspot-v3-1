@@ -47,7 +47,6 @@ html, body {
 #sessionsBtn {
   background-color: #66bb6a;
   float: right;
-  margin-top: -9px;
   width: 190px;
 }
 @import "https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic";
@@ -700,8 +699,9 @@ _:-ms-input-placeholder, :root .graph {
   align-items: center;
 }
 #checkIn {
-  font-size: 40px;
+  font-size: 50px;
   color: #ef6c00;
+
 }
 
 #DU{
@@ -709,6 +709,30 @@ height:82px;
 width: 250px;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
